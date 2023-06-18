@@ -8,14 +8,14 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct ExerciseListItemFeature: Reducer {
+struct AddExerciseItemFeature: Reducer {
 
 	struct State: Equatable, Identifiable {
 		let id = UUID()
 		let name: String
 		let muscles: [String]
 		let image: Image?
-		var selected: Bool = true
+		var selected: Bool = false
 	}
 
 	enum Action {
@@ -34,32 +34,31 @@ struct ExerciseListItemFeature: Reducer {
 	}
 }
 
-struct ExerciseListItemView: View {
+struct AddExerciseItemView: View {
 
-	let store: StoreOf<ExerciseListItemFeature>
+	let store: StoreOf<AddExerciseItemFeature>
 
 	var body: some View {
-		WithViewStore(store, observe: { $0 }) { viewStore in
+		WithViewStore(store, observe: { $0 }) { (viewStore: ViewStoreOf<AddExerciseItemFeature>) in
 			HStack(spacing: 8) {
 
-				if viewStore.state.selected {
-					Rectangle()
-						.frame(width: 16, height: 20)
-						.cornerRadius(4)
-				}
-
-				Text("Img")
+				Image(systemName: Images.workoutImage)
+					.resizable(resizingMode: .stretch)
+					.scaledToFit()
+					.frame(maxWidth: 48)
 
 				VStack(alignment: .leading, spacing: 8) {
 					Text(viewStore.state.name)
 					Text(viewStore.state.muscles.joined(separator: ","))
-				}.padding(12)
+						.foregroundColor(.secondary)
+				}.padding(16)
 
 				Spacer()
 
-				Image(systemName: "chart.xyaxis.line")
+				Image(systemName: Images.pieChartImage)
 					.resizable(resizingMode: .stretch)
-					.frame(width: 32, height: 32)
+					.scaledToFit()
+					.frame(maxWidth: 48)
 					.foregroundColor(.mint)
 					.onTapGesture {
 						viewStore.send(.tappedSeeData)
@@ -72,15 +71,19 @@ struct ExerciseListItemView: View {
 					return
 				}
 			}
+			.padding(16)
+			.background(viewStore.selected ? Color.mint.opacity(0.2): .clear)
+			.cornerRadius(16)
+			.padding(horizontal: 16)
 		}
 	}
 }
 
-struct ExerciseListItemView_Previews: PreviewProvider {
+struct AddExerciseItemView_Previews: PreviewProvider {
 	static var previews: some View {
-		ExerciseListItemView(
+		AddExerciseItemView(
 			store: Store(initialState: .init(name: "Bench", muscles: ["Chest"], image: nil), reducer: {
-				ExerciseListItemFeature()
+				AddExerciseItemFeature()
 			})
 		)
 	}

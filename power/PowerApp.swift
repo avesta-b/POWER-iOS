@@ -39,13 +39,14 @@ class RepetitionDetector {
 		}
 
 		let currentDate = Date()
+		let rollingAverage = dataWindow.reduce(0, +) / Double(dataWindow.count)
 		let maxValue = dataWindow.max()!
 		let minValue = dataWindow.min()!
 
-		guard currentDate.timeIntervalSince1970 - lastRepDetected > 0.2,
-			  maxValue - minValue >= threshold else {
-				return false
-			  }
+		guard currentDate.timeIntervalSince1970 - lastRepDetected > 0.1,
+			  abs(maxValue - rollingAverage) >= threshold else {
+			return false
+		}
 
 		lastRepDetected = currentDate.timeIntervalSince1970
 		dataWindow = []
@@ -53,6 +54,7 @@ class RepetitionDetector {
 		return true
 	}
 }
+
 
 
 
@@ -94,7 +96,7 @@ class ExerciseTracker: ObservableObject {
 	private let motionThreshold: Double = 0.5
 
 	init() {
-		tracker.accelerometerUpdateInterval = 1.0 / 8
+		tracker.accelerometerUpdateInterval = 1.0 / 20
 	}
 
 	func stop() {

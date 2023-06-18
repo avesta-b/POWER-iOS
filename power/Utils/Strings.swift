@@ -33,4 +33,16 @@ enum Strings {
 		"Start Routine"
 	}
 
+	static var cancel: String {
+		"Cancel"
+	}
+
+	static var addExercise: String {
+		"Add Exercise"
+	}
+
+	static var create: String {
+		"Create"
+	}
+
 }

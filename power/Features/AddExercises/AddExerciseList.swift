@@ -8,42 +8,74 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct ExerciseListFeature: Reducer {
+struct AddExerciseListFeature: Reducer {
 
-	struct State {
-		let exercises: [ExerciseListItemFeature.State]
+	struct State: Equatable {
+		var exercises: IdentifiedArrayOf<AddExerciseItemFeature.State>
 	}
 
 	enum Action {
-		case tappedSave
+		case tappedCancel
+		case tappedCreate
+		case exerciseItem(id: AddExerciseItemFeature.State.ID, action: AddExerciseItemFeature.Action)
 	}
 
-	func reduce(into state: inout State, action: Action) -> Effect<Action> {
-		switch action {
-		case .tappedSave:
-			let selectedItems = state.exercises.filter { $0.selected == true }
-			print(selectedItems)
-			return .none
+	var body: some ReducerOf<Self> {
+		Reduce<State, Action> { state, action in
+			switch action {
+			case .tappedCancel:
+				return .none
+			case .tappedCreate:
+				let saved = state.exercises.filter { $0.selected == true }
+				print(saved)
+				return .none
+			case .exerciseItem(id: _, action: _):
+				return .none
+			}
+		}
+
+		.forEach(\.exercises, action: /Action.exerciseItem(id:action:)) {
+			AddExerciseItemFeature()
 		}
 	}
 
+
 }
 
-struct ExerciseListView: View {
+struct AddExerciseListView: View {
 
-	let store: StoreOf<ExerciseListFeature>
+	let store: StoreOf<AddExerciseListFeature>
 
     var body: some View {
 		WithViewStore(store, observe: \.exercises) { viewStore in
-			ScrollView {
-				Button("Foo") {
-					viewStore.send(.tappedSave)
+
+			VStack {
+
+				HStack {
+					Button(Strings.cancel) {
+						viewStore.send(.tappedCancel)
+					}
+					.padding(16)
+					Spacer()
+					Text(Strings.addExercise)
+					Spacer()
+					Button(Strings.create) {
+						viewStore.send(.tappedCreate)
+					}
+					.padding(16)
 				}
-				LazyVGrid(columns: [.init()]) {
-					ForEach(viewStore.state) { item in
-						ExerciseListItemView(
-							store: Store(initialState: item, reducer: ExerciseListItemFeature()))
-						.padding(horizontal: 16)
+
+				ScrollView {
+					LazyVGrid(columns: [.init()]) {
+
+						ForEachStore(
+							self.store.scope(
+								state: \.exercises,
+								action: AddExerciseListFeature.Action.exerciseItem(id:action:))
+						) { childStore in
+							return AddExerciseItemView(store: childStore)
+						}
+
 					}
 				}
 			}
@@ -51,9 +83,9 @@ struct ExerciseListView: View {
     }
 }
 
-struct ExerciseListView_Previews: PreviewProvider {
+struct AddExerciseListView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseListView(
+        AddExerciseListView(
 			store: Store(initialState: .init(exercises: [
 				.init(name: "Bench", muscles: ["Chest"], image: nil),
 				.init(name: "Deadlift", muscles: ["Back"], image: nil),
@@ -79,7 +111,7 @@ struct ExerciseListView_Previews: PreviewProvider {
 				.init(name: "Bench", muscles: ["Chest"], image: nil),
 				.init(name: "Deadlift", muscles: ["Back"], image: nil),
 				.init(name: "Squat", muscles: ["Legs"], image: nil),
-			]), reducer: ExerciseListFeature())
+			]), reducer: AddExerciseListFeature())
 		)
     }
 }
