@@ -7,15 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C91C9D252A36C40800E431EB /* powerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D242A36C40800E431EB /* powerApp.swift */; };
-		C91C9D272A36C40800E431EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D262A36C40800E431EB /* ContentView.swift */; };
+		C9046DB82A3E724F009D3AF4 /* ExerciseListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9046DB72A3E724F009D3AF4 /* ExerciseListItem.swift */; };
+		C91C9D252A36C40800E431EB /* PowerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D242A36C40800E431EB /* PowerApp.swift */; };
 		C91C9D292A36C40900E431EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91C9D282A36C40900E431EB /* Assets.xcassets */; };
 		C91C9D2C2A36C40900E431EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91C9D2B2A36C40900E431EB /* Preview Assets.xcassets */; };
 		C91C9D2E2A36C40900E431EB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D2D2A36C40900E431EB /* Persistence.swift */; };
 		C91C9D312A36C40900E431EB /* power.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D2F2A36C40900E431EB /* power.xcdatamodeld */; };
-		C91C9D3C2A36C40900E431EB /* powerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D3B2A36C40900E431EB /* powerTests.swift */; };
-		C91C9D462A36C40900E431EB /* powerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D452A36C40900E431EB /* powerUITests.swift */; };
-		C91C9D482A36C40900E431EB /* powerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D472A36C40900E431EB /* powerUITestsLaunchTests.swift */; };
+		C91C9D3C2A36C40900E431EB /* PowerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D3B2A36C40900E431EB /* PowerTests.swift */; };
+		C91C9D462A36C40900E431EB /* PowerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D452A36C40900E431EB /* PowerUITests.swift */; };
+		C91C9D482A36C40900E431EB /* PowerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D472A36C40900E431EB /* PowerUITestsLaunchTests.swift */; };
+		C92FFF682A3D4E9E0035CACF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FFF672A3D4E9E0035CACF /* Strings.swift */; };
+		C946130F2A3E995400104F72 /* ExerciseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946130E2A3E995400104F72 /* ExerciseList.swift */; };
+		C99F27612A3C1EFE00CACC8E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C99F27602A3C1EFE00CACC8E /* ComposableArchitecture */; settings = {ATTRIBUTES = (Required, ); }; };
+		C99F27652A3C1F8D00CACC8E /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99F27642A3C1F8D00CACC8E /* CounterFeature.swift */; };
+		C99F276C2A3D483F00CACC8E /* TabPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99F276B2A3D483F00CACC8E /* TabPage.swift */; };
+		C9B8BD762A3D686F00A18C3C /* WorkoutCarditem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8BD752A3D686F00A18C3C /* WorkoutCarditem.swift */; };
+		C9B8BD782A3D6F0D00A18C3C /* View+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8BD772A3D6F0D00A18C3C /* View+Modifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,19 +43,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C9046DB72A3E724F009D3AF4 /* ExerciseListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListItem.swift; sourceTree = "<group>"; };
 		C91C9D212A36C40800E431EB /* power.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = power.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C91C9D242A36C40800E431EB /* powerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = powerApp.swift; sourceTree = "<group>"; };
-		C91C9D262A36C40800E431EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C91C9D242A36C40800E431EB /* PowerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerApp.swift; sourceTree = "<group>"; };
 		C91C9D282A36C40900E431EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C91C9D2B2A36C40900E431EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C91C9D2D2A36C40900E431EB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		C91C9D302A36C40900E431EB /* power.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = power.xcdatamodel; sourceTree = "<group>"; };
 		C91C9D322A36C40900E431EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C91C9D372A36C40900E431EB /* powerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = powerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C91C9D3B2A36C40900E431EB /* powerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = powerTests.swift; sourceTree = "<group>"; };
+		C91C9D3B2A36C40900E431EB /* PowerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerTests.swift; sourceTree = "<group>"; };
 		C91C9D412A36C40900E431EB /* powerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = powerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C91C9D452A36C40900E431EB /* powerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = powerUITests.swift; sourceTree = "<group>"; };
-		C91C9D472A36C40900E431EB /* powerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = powerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C91C9D452A36C40900E431EB /* PowerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUITests.swift; sourceTree = "<group>"; };
+		C91C9D472A36C40900E431EB /* PowerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C92FFF672A3D4E9E0035CACF /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		C946130E2A3E995400104F72 /* ExerciseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseList.swift; sourceTree = "<group>"; };
+		C99F27642A3C1F8D00CACC8E /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
+		C99F276B2A3D483F00CACC8E /* TabPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPage.swift; sourceTree = "<group>"; };
+		C9B8BD752A3D686F00A18C3C /* WorkoutCarditem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCarditem.swift; sourceTree = "<group>"; };
+		C9B8BD772A3D6F0D00A18C3C /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C99F27612A3C1EFE00CACC8E /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +90,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9046DB62A3E71EA009D3AF4 /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				C9B8BD752A3D686F00A18C3C /* WorkoutCarditem.swift */,
+			);
+			path = Workouts;
+			sourceTree = "<group>";
+		};
 		C91C9D182A36C40800E431EB = {
 			isa = PBXGroup;
 			children = (
 				C91C9D232A36C40800E431EB /* power */,
-				C91C9D3A2A36C40900E431EB /* powerTests */,
-				C91C9D442A36C40900E431EB /* powerUITests */,
+				C91C9D3A2A36C40900E431EB /* PowerTests */,
+				C91C9D442A36C40900E431EB /* PowerUITests */,
 				C91C9D222A36C40800E431EB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,8 +121,9 @@
 		C91C9D232A36C40800E431EB /* power */ = {
 			isa = PBXGroup;
 			children = (
-				C91C9D242A36C40800E431EB /* powerApp.swift */,
-				C91C9D262A36C40800E431EB /* ContentView.swift */,
+				C92FFF662A3D4E930035CACF /* Utils */,
+				C99F27622A3C1F7400CACC8E /* Features */,
+				C91C9D242A36C40800E431EB /* PowerApp.swift */,
 				C91C9D282A36C40900E431EB /* Assets.xcassets */,
 				C91C9D2D2A36C40900E431EB /* Persistence.swift */,
 				C91C9D322A36C40900E431EB /* Info.plist */,
@@ -118,21 +141,66 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C91C9D3A2A36C40900E431EB /* powerTests */ = {
+		C91C9D3A2A36C40900E431EB /* PowerTests */ = {
 			isa = PBXGroup;
 			children = (
-				C91C9D3B2A36C40900E431EB /* powerTests.swift */,
+				C91C9D3B2A36C40900E431EB /* PowerTests.swift */,
 			);
-			path = powerTests;
+			path = PowerTests;
 			sourceTree = "<group>";
 		};
-		C91C9D442A36C40900E431EB /* powerUITests */ = {
+		C91C9D442A36C40900E431EB /* PowerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C91C9D452A36C40900E431EB /* powerUITests.swift */,
-				C91C9D472A36C40900E431EB /* powerUITestsLaunchTests.swift */,
+				C91C9D452A36C40900E431EB /* PowerUITests.swift */,
+				C91C9D472A36C40900E431EB /* PowerUITestsLaunchTests.swift */,
 			);
-			path = powerUITests;
+			path = PowerUITests;
+			sourceTree = "<group>";
+		};
+		C92FFF662A3D4E930035CACF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C92FFF672A3D4E9E0035CACF /* Strings.swift */,
+				C9B8BD772A3D6F0D00A18C3C /* View+Modifiers.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C92FFF692A3D54840035CACF /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				C9046DB72A3E724F009D3AF4 /* ExerciseListItem.swift */,
+				C946130E2A3E995400104F72 /* ExerciseList.swift */,
+			);
+			path = Exercises;
+			sourceTree = "<group>";
+		};
+		C99F27622A3C1F7400CACC8E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				C9046DB62A3E71EA009D3AF4 /* Workouts */,
+				C92FFF692A3D54840035CACF /* Exercises */,
+				C99F276A2A3D482500CACC8E /* TabPage */,
+				C99F27632A3C1F7A00CACC8E /* Counter */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		C99F27632A3C1F7A00CACC8E /* Counter */ = {
+			isa = PBXGroup;
+			children = (
+				C99F27642A3C1F8D00CACC8E /* CounterFeature.swift */,
+			);
+			path = Counter;
+			sourceTree = "<group>";
+		};
+		C99F276A2A3D482500CACC8E /* TabPage */ = {
+			isa = PBXGroup;
+			children = (
+				C99F276B2A3D483F00CACC8E /* TabPage.swift */,
+			);
+			path = TabPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +219,9 @@
 			dependencies = (
 			);
 			name = power;
+			packageProductDependencies = (
+				C99F27602A3C1EFE00CACC8E /* ComposableArchitecture */,
+			);
 			productName = power;
 			productReference = C91C9D212A36C40800E431EB /* power.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +294,9 @@
 				Base,
 			);
 			mainGroup = C91C9D182A36C40800E431EB;
+			packageReferences = (
+				C99F275F2A3C1EFE00CACC8E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = C91C9D222A36C40800E431EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -266,8 +340,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C91C9D2E2A36C40900E431EB /* Persistence.swift in Sources */,
-				C91C9D272A36C40800E431EB /* ContentView.swift in Sources */,
-				C91C9D252A36C40800E431EB /* powerApp.swift in Sources */,
+				C9B8BD782A3D6F0D00A18C3C /* View+Modifiers.swift in Sources */,
+				C9046DB82A3E724F009D3AF4 /* ExerciseListItem.swift in Sources */,
+				C99F276C2A3D483F00CACC8E /* TabPage.swift in Sources */,
+				C9B8BD762A3D686F00A18C3C /* WorkoutCarditem.swift in Sources */,
+				C91C9D252A36C40800E431EB /* PowerApp.swift in Sources */,
+				C99F27652A3C1F8D00CACC8E /* CounterFeature.swift in Sources */,
+				C92FFF682A3D4E9E0035CACF /* Strings.swift in Sources */,
+				C946130F2A3E995400104F72 /* ExerciseList.swift in Sources */,
 				C91C9D312A36C40900E431EB /* power.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C91C9D3C2A36C40900E431EB /* powerTests.swift in Sources */,
+				C91C9D3C2A36C40900E431EB /* PowerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,8 +364,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C91C9D482A36C40900E431EB /* powerUITestsLaunchTests.swift in Sources */,
-				C91C9D462A36C40900E431EB /* powerUITests.swift in Sources */,
+				C91C9D482A36C40900E431EB /* PowerUITestsLaunchTests.swift in Sources */,
+				C91C9D462A36C40900E431EB /* PowerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +510,7 @@
 				DEVELOPMENT_TEAM = 7H66Q22DJD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Power;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -440,7 +521,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.avestabarzegar.power;
+				PRODUCT_BUNDLE_IDENTIFIER = com.avestabarzegar.Power;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -459,6 +540,7 @@
 				DEVELOPMENT_TEAM = 7H66Q22DJD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Power;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -469,7 +551,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.avestabarzegar.power;
+				PRODUCT_BUNDLE_IDENTIFIER = com.avestabarzegar.Power;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -593,6 +675,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C99F275F2A3C1EFE00CACC8E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				branch = prerelease/1.0;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C99F27602A3C1EFE00CACC8E /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C99F275F2A3C1EFE00CACC8E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C91C9D2F2A36C40900E431EB /* power.xcdatamodeld */ = {
