@@ -10,7 +10,8 @@ import SwiftUI
 
 struct ExerciseListItemFeature: Reducer {
 
-	struct State: Equatable {
+	struct State: Equatable, Identifiable {
+		let id = UUID()
 		let name: String
 		let muscles: [String]
 		let image: Image?
@@ -48,12 +49,11 @@ struct ExerciseListItemView: View {
 				}
 
 				Text("Img")
-					.padding(horizontal: 12)
 
 				VStack(alignment: .leading, spacing: 8) {
 					Text(viewStore.state.name)
 					Text(viewStore.state.muscles.joined(separator: ","))
-				}
+				}.padding(12)
 
 				Spacer()
 
@@ -61,13 +61,10 @@ struct ExerciseListItemView: View {
 					.resizable(resizingMode: .stretch)
 					.frame(width: 32, height: 32)
 					.foregroundColor(.mint)
-					.padding(horizontal: 12)
 					.onTapGesture {
 						viewStore.send(.tappedSeeData)
 					}
 			}
-			.border(.blue)
-			.padding(8)
 			.contentShape(Rectangle())
 			.onTapGesture {
 				withAnimation(.easeOut(duration: 0.1)) {
