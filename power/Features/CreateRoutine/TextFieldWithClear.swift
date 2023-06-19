@@ -36,45 +36,65 @@ struct TextFieldWithClearFeature: Reducer {
 
 struct TextFieldWithClearView: View {
 
-	let store: StoreOf<TextFieldWithClearFeature>
+	private let titleKey: String
+	private let textFont: Font?
+	private let prompt: Text?
 
-    var body: some View {
-		WithViewStore(store, observe: { $0 }) { viewStore in
-			VStack {
-				HStack {
-					TextField(
-						viewStore.state.titleKey,
-						text: viewStore.binding(get: { $0.text }, send: TextFieldWithClearFeature.Action.didUpdateText),
-						prompt: viewStore.state.prompt
-					)
-					.font(viewStore.textFont)
-					Spacer()
-					Button {
-						viewStore.send(.didTapClear)
-					} label: {
-						if viewStore.text.isEmpty == false {
-							Image(systemName: Images.deleteLeftImage)
-								.resizable()
-								.foregroundColor(.primary)
-								.scaledToFit()
-								.frame(width: 24)
-						}
+	private(set) var text: Binding<String>
+
+	init(titleKey: String, textFont: Font?, prompt: Text?, text: Binding<String>) {
+		self.titleKey = titleKey
+		self.textFont = textFont
+		self.prompt = prompt
+		self.text = text
+	}
+
+	var body: some View {
+		VStack {
+			HStack {
+				TextField(
+					titleKey,
+					text: text,
+					prompt: prompt
+				)
+				.font(textFont)
+				Spacer()
+				Button {
+					text.wrappedValue = ""
+				} label: {
+					if text.wrappedValue.isEmpty == false {
+						Image(systemName: Images.deleteLeftImage)
+							.resizable()
+							.foregroundColor(.primary)
+							.scaledToFit()
+							.frame(width: 24)
 					}
 				}
-				Divider()
 			}
+			Divider()
 		}
-    }
+	}
+}
+
+#if DEBUG
+
+struct Wrapper: View {
+	@State var binding = ""
+
+	var body: some View {
+		TextFieldWithClearView(
+			titleKey: "Routine title",
+			textFont: nil,
+			prompt: nil,
+			text: $binding
+		)
+	}
 }
 
 struct TextFieldWithClearView_Previews: PreviewProvider {
-    static var previews: some View {
-		TextFieldWithClearView(
-			store: Store(
-				initialState: TextFieldWithClearFeature.State(titleKey: "Some title",
-															  textFont: .body,
-															  prompt: Text("Foo prompt")),
-				reducer: TextFieldWithClearFeature())
-		)
-    }
+	static var previews: some View {
+		Wrapper()
+	}
 }
+
+#endif

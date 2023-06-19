@@ -17,6 +17,11 @@ struct AddExerciseFeature: Reducer {
 
 		var selectedCount: Int = 0
 
+		init(exercises: IdentifiedArrayOf<AddExerciseItemFeature.State>) {
+			self.exercises = exercises
+			self.selectedCount = selectedExercises.count
+		}
+
 		var selectedExercises: IdentifiedArrayOf<AddExerciseItemFeature.State> {
 			return exercises.filter { $0.selected == true }
 		}
@@ -144,9 +149,9 @@ struct AddExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         AddExerciseView(
 			store: Store(initialState: .init(exercises: [
-				.init(name: "Bench", muscles: ["Chest"], image: nil),
+				.init(name: "Bench", muscles: ["Chest"], image: nil, selected: true),
 				.init(name: "Deadlift", muscles: ["Back"], image: nil),
-				.init(name: "Squat", muscles: ["Legs"], image: nil),
+				.init(name: "Squat", muscles: ["Legs"], image: nil, selected: true),
 				.init(name: "Bench", muscles: ["Chest"], image: nil),
 				.init(name: "Deadlift", muscles: ["Back"], image: nil),
 				.init(name: "Squat", muscles: ["Legs"], image: nil),

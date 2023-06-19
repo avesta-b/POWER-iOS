@@ -9,6 +9,7 @@ import ComposableArchitecture
 import XCTest
 @testable import power
 
+@MainActor
 final class AddExerciseListTests: XCTestCase {
 
 	private static let initialItems: IdentifiedArrayOf<AddExerciseItemFeature.State> = [
@@ -17,7 +18,7 @@ final class AddExerciseListTests: XCTestCase {
 		AddExerciseItemFeature.State(name: "Deadlift", muscles: ["Lower back"], image: nil)
 	]
 
-	func testSelectedFilter() {
+	func testSelectedFilter() async {
 
 		let items = AddExerciseFeature.State(exercises: [
 			AddExerciseItemFeature.State(name: "Exercise A", muscles: [], image: nil, selected: true),
@@ -30,6 +31,7 @@ final class AddExerciseListTests: XCTestCase {
 		])
 
 		XCTAssertEqual(items.selectedExercises.count, 5)
+		XCTAssertEqual(items.selectedCount, 5)
 	}
 
 }

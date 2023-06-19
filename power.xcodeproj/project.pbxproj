@@ -24,6 +24,7 @@
 		C91C9D482A36C40900E431EB /* PowerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D472A36C40900E431EB /* PowerUITestsLaunchTests.swift */; };
 		C92FFF682A3D4E9E0035CACF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FFF672A3D4E9E0035CACF /* Strings.swift */; };
 		C946130F2A3E995400104F72 /* AddExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946130E2A3E995400104F72 /* AddExercise.swift */; };
+		C97BEC512A4011F400AD5370 /* RoutineList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BEC502A4011F400AD5370 /* RoutineList.swift */; };
 		C99F27612A3C1EFE00CACC8E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C99F27602A3C1EFE00CACC8E /* ComposableArchitecture */; settings = {ATTRIBUTES = (Required, ); }; };
 		C99F27652A3C1F8D00CACC8E /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99F27642A3C1F8D00CACC8E /* CounterFeature.swift */; };
 		C99F276C2A3D483F00CACC8E /* TabPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99F276B2A3D483F00CACC8E /* TabPage.swift */; };
@@ -70,6 +71,7 @@
 		C91C9D472A36C40900E431EB /* PowerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C92FFF672A3D4E9E0035CACF /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		C946130E2A3E995400104F72 /* AddExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExercise.swift; sourceTree = "<group>"; };
+		C97BEC502A4011F400AD5370 /* RoutineList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineList.swift; sourceTree = "<group>"; };
 		C99F27642A3C1F8D00CACC8E /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 		C99F276B2A3D483F00CACC8E /* TabPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPage.swift; sourceTree = "<group>"; };
 		C9B8BD752A3D686F00A18C3C /* WorkoutCarditem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCarditem.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				C91688AD2A3FD1C700F1BF93 /* CreateRoutine.swift */,
 				C91688AF2A3FEA3D00F1BF93 /* TextFieldWithClear.swift */,
+				C97BEC502A4011F400AD5370 /* RoutineList.swift */,
 			);
 			path = CreateRoutine;
 			sourceTree = "<group>";
@@ -189,6 +192,13 @@
 			path = PowerUITests;
 			sourceTree = "<group>";
 		};
+		C91D5CCE2A410E5F00150EF1 /* RoutineExercises */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RoutineExercises;
+			sourceTree = "<group>";
+		};
 		C92FFF662A3D4E930035CACF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +222,7 @@
 		C99F27622A3C1F7400CACC8E /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C91D5CCE2A410E5F00150EF1 /* RoutineExercises */,
 				C91688AC2A3FD18A00F1BF93 /* CreateRoutine */,
 				C9046DB62A3E71EA009D3AF4 /* Workouts */,
 				C92FFF692A3D54840035CACF /* AddExercises */,
@@ -381,6 +392,7 @@
 				C91688A12A3FBD9500F1BF93 /* Images.swift in Sources */,
 				C99F276C2A3D483F00CACC8E /* TabPage.swift in Sources */,
 				C9B8BD762A3D686F00A18C3C /* WorkoutCarditem.swift in Sources */,
+				C97BEC512A4011F400AD5370 /* RoutineList.swift in Sources */,
 				C91C9D252A36C40800E431EB /* PowerApp.swift in Sources */,
 				C99F27652A3C1F8D00CACC8E /* CounterFeature.swift in Sources */,
 				C92FFF682A3D4E9E0035CACF /* Strings.swift in Sources */,

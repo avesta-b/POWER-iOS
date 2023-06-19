@@ -11,7 +11,8 @@ import SwiftUI
 struct CreateRoutineFeature: Reducer {
 
 	struct State: Equatable {
-		var textFieldState = TextFieldWithClearFeature.State(titleKey: Strings.routineTitle, textFont: .title3, prompt: Text(Strings.routineTitle).font(.title3))
+		@BindingState var textFieldState: String =  ""
+		let bool: Bool = false
 		@PresentationState var addExercise: AddExerciseFeature.State?
 	}
 
@@ -21,6 +22,7 @@ struct CreateRoutineFeature: Reducer {
 		case cancelTapped
 		case saveTapped
 		case presentAddScreenTapped
+		case didEditTextField(String)
 	}
 
 	var body: some ReducerOf<Self> {
@@ -40,17 +42,18 @@ struct CreateRoutineFeature: Reducer {
 			case .presentAddScreenTapped:
 				state.addExercise = .init(exercises: [
 					.init(name: "Foo", muscles: ["Jeff"], image: nil),
-					.init(name: "Foo", muscles: ["Jeff"], image: nil)
+					.init(name: "B", muscles: ["A"], image: nil)
 				])
+				return .none
+			case let .didEditTextField(newText):
+				state.textFieldState = newText
 				return .none
 			}
 		}
 		.ifLet(\.$addExercise, action: /Action.addExercise) {
 			AddExerciseFeature()
 		}
-		Scope(state: \.textFieldState, action: /Action.editTitle) {
-			TextFieldWithClearFeature()
-		}
+
 
 	}
 }
@@ -59,14 +62,16 @@ struct CreateRoutineView: View {
 
 	let store: StoreOf<CreateRoutineFeature>
 
+
 	var body: some View {
 		WithViewStore(store, observe: \.textFieldState ) { viewStore in
 			NavigationStack {
 				VStack {
 					TextFieldWithClearView(
-						store: self.store.scope(
-							state: { _ in viewStore.state },
-							action: CreateRoutineFeature.Action.editTitle)
+						titleKey: Strings.routineTitle,
+						textFont: .body,
+						prompt: Text(Strings.routineTitle).font(.body),
+						text: viewStore.binding(get: { $0 }, send: { .didEditTextField($0) })
 					)
 					.padding(16)
 
