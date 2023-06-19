@@ -17,15 +17,6 @@ final class AddExerciseListTests: XCTestCase {
 		AddExerciseItemFeature.State(name: "Deadlift", muscles: ["Lower back"], image: nil)
 	]
 
-	func testMultipleSelections() async {
-
-		let items = Self.initialItems
-
-		let store = TestStore(
-			initialState: AddExerciseListFeature.State(exercises: items),
-			reducer: AddExerciseListFeature())
-	}
-
 	func testSelectedFilter() {
 
 		let items = AddExerciseListFeature.State(exercises: [
