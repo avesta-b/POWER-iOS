@@ -20,12 +20,15 @@ struct CreateRoutineFeature: Reducer {
 		case addExercise(PresentationAction<AddExerciseFeature.Action>)
 		case cancelTapped
 		case saveTapped
-		case addTapped
+		case presentAddScreenTapped
 	}
 
 	var body: some ReducerOf<Self> {
 		Reduce<State, Action> { state, action in
 			switch action {
+			case let .addExercise(.presented(.delegate(.tappedAddExercises(selectedExercises)))):
+				print(selectedExercises)
+				return .none
 			case .editTitle(_):
 				return .none
 			case .addExercise(_):
@@ -34,8 +37,11 @@ struct CreateRoutineFeature: Reducer {
 				return .none
 			case .saveTapped:
 				return .none
-			case .addTapped:
-				state.addExercise = .init(exercises: [])
+			case .presentAddScreenTapped:
+				state.addExercise = .init(exercises: [
+					.init(name: "Foo", muscles: ["Jeff"], image: nil),
+					.init(name: "Foo", muscles: ["Jeff"], image: nil)
+				])
 				return .none
 			}
 		}
@@ -54,12 +60,12 @@ struct CreateRoutineView: View {
 	let store: StoreOf<CreateRoutineFeature>
 
 	var body: some View {
-		WithViewStore(store, observe: { $0 }) { viewStore in
+		WithViewStore(store, observe: \.textFieldState ) { viewStore in
 			NavigationStack {
 				VStack {
 					TextFieldWithClearView(
 						store: self.store.scope(
-							state: \.textFieldState,
+							state: { _ in viewStore.state },
 							action: CreateRoutineFeature.Action.editTitle)
 					)
 					.padding(16)
@@ -74,8 +80,8 @@ struct CreateRoutineView: View {
 					Text(Strings.getStartedByAddingAnExercise)
 						.multilineTextAlignment(.center)
 						.padding(horizontal: 32)
-					Button("Add exercises") {
-						viewStore.send(.addTapped)
+					Button(Strings.addExercise) {
+						viewStore.send(.presentAddScreenTapped)
 					}
 					.font(.headline)
 					.foregroundColor(Color(UIColor.systemBackground))

@@ -16,6 +16,19 @@ struct AddExerciseItemFeature: Reducer {
 		let muscles: [String]
 		let image: Image?
 		var selected: Bool = false
+
+		struct ExtractedState: Equatable, Identifiable {
+			let id: UUID
+			let name: String
+			let muscles: [String]
+			let image: Image?
+			init(from state: State) {
+				self.id = state.id
+				self.name = state.name
+				self.muscles = state.muscles
+				self.image = state.image
+			}
+		}
 	}
 
 	enum Action {

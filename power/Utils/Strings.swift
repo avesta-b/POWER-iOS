@@ -45,6 +45,10 @@ enum Strings {
 		"Create"
 	}
 
+	static var addCustom: String {
+		"Add Custom"
+	}
+
 	static func addExercises(count: Int) -> String {
 		"Add \(count) exercises"
 	}

@@ -46,7 +46,8 @@ struct TextFieldWithClearView: View {
 						viewStore.state.titleKey,
 						text: viewStore.binding(get: { $0.text }, send: TextFieldWithClearFeature.Action.didUpdateText),
 						prompt: viewStore.state.prompt
-					).font(viewStore.textFont)
+					)
+					.font(viewStore.textFont)
 					Spacer()
 					Button {
 						viewStore.send(.didTapClear)

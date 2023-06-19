@@ -15,6 +15,8 @@ struct AddExerciseFeature: Reducer {
 	struct State: Equatable {
 		var exercises: IdentifiedArrayOf<AddExerciseItemFeature.State>
 
+		var selectedCount: Int = 0
+
 		var selectedExercises: IdentifiedArrayOf<AddExerciseItemFeature.State> {
 			return exercises.filter { $0.selected == true }
 		}
@@ -22,9 +24,14 @@ struct AddExerciseFeature: Reducer {
 
 	enum Action {
 		case tappedCancel
-		case tappedCreate
+		case tappedAddCustom
 		case tappedAddExercises
 		case exerciseItem(id: AddExerciseItemFeature.State.ID, action: AddExerciseItemFeature.Action)
+		case delegate(Delegate)
+
+		enum Delegate {
+			case tappedAddExercises(IdentifiedArrayOf<AddExerciseItemFeature.State.ExtractedState>)
+		}
 	}
 
 	var body: some ReducerOf<Self> {
@@ -32,11 +39,35 @@ struct AddExerciseFeature: Reducer {
 			switch action {
 			case .tappedCancel:
 				return .run { _ in await self.dismiss() }
-			case .tappedCreate:
+			case .tappedAddCustom:
 				return .none
 			case .tappedAddExercises:
-				return .none
-			case .exerciseItem(id: _, action: _):
+				let exercises: [AddExerciseItemFeature.State.ExtractedState] = state
+					.selectedExercises
+					.map { AddExerciseItemFeature.State.ExtractedState(from: $0) }
+
+				let selectedExercises: IdentifiedArrayOf<AddExerciseItemFeature.State.ExtractedState> = IdentifiedArrayOf(uniqueElements: exercises)
+
+				return .run { [selectedItems = selectedExercises] send in
+					await send(.delegate(.tappedAddExercises(selectedItems)))
+					await self.dismiss()
+				}
+
+			case let .exerciseItem(id: idValue, action: actionItem):
+				switch actionItem {
+				case .tappedListItem:
+					guard let selectedValue = state.exercises[id: idValue]?.selected else { return .none }
+					switch selectedValue {
+					case true:
+						state.selectedCount += 1
+					case false:
+						state.selectedCount -= 1
+					}
+					return .none
+				case .tappedSeeData:
+					return .none
+				}
+			case .delegate(_):
 				return .none
 			}
 		}
@@ -54,58 +85,56 @@ struct AddExerciseView: View {
 	let store: StoreOf<AddExerciseFeature>
 
     var body: some View {
-		WithViewStore(store, observe: { $0 }) { viewStore in
+		WithViewStore(store, observe: \.selectedCount) { viewStore in
 
-			VStack {
-				HStack {
-					Button(Strings.cancel) {
-						viewStore.send(.tappedCancel)
-					}
-					.font(.title3)
-					.padding(16)
-
-					Spacer()
-					Text(Strings.addExercise)
-						.font(.title3)
-					Spacer()
-
-					Button(Strings.create) {
-						viewStore.send(.tappedCreate)
-					}
-					.font(.title3)
-					.padding(16)
-				}
-
-				ZStack {
-					ScrollView {
-						LazyVGrid(columns: [.init()]) {
-
-							ForEachStore(
-								self.store.scope(
-									state: \.exercises,
-									action: AddExerciseFeature.Action.exerciseItem(id:action:))
-							) { childStore in
-								AddExerciseItemView(store: childStore)
-							}
-						}
-					}
-
-					if viewStore.state.selectedExercises.isEmpty == false {
-						VStack {
+			NavigationStack {
+				VStack {
+					ZStack {
+						ScrollView {
 							Spacer()
-							Button(Strings.addExercises(count: viewStore.state.selectedExercises.count)) {
-								viewStore.send(.tappedAddExercises)
+								.frame(height: 24)
+							LazyVGrid(columns: [.init()]) {
+
+								ForEachStore(
+									self.store.scope(
+										state: \.exercises,
+										action: AddExerciseFeature.Action.exerciseItem(id:action:))
+								) { childStore in
+									AddExerciseItemView(store: childStore)
+								}
 							}
-							.font(.headline)
-							.foregroundColor(Color(UIColor.systemBackground))
-							.padding(16)
-							.background(Color.mint)
-							.cornerRadius(16)
 						}
 
+						if viewStore.state != 0 {
+							VStack {
+								Spacer()
+								Button(Strings.addExercises(count: viewStore.state)) {
+									viewStore.send(.tappedAddExercises)
+								}
+								.font(.headline)
+								.foregroundColor(Color(UIColor.systemBackground))
+								.padding(16)
+								.background(Color.mint)
+								.cornerRadius(16)
+							}
+
+						}
 					}
 				}
-
+				.navigationTitle(Strings.addExercise)
+				.navigationBarTitleDisplayMode(.inline)
+				.toolbar {
+					ToolbarItem(placement: .navigationBarLeading) {
+						Button(Strings.cancel) {
+							viewStore.send(.tappedCancel)
+						}
+					}
+					ToolbarItem(placement: .navigationBarTrailing) {
+						Button(Strings.addCustom) {
+							viewStore.send(.tappedAddCustom)
+						}
+					}
+				}
 			}
 		}
     }
