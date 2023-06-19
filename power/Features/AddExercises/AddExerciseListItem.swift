@@ -71,10 +71,14 @@ struct AddExerciseItemView: View {
 					return
 				}
 			}
-			.padding(16)
-			.background(viewStore.selected ? Color.mint.opacity(0.2): .clear)
+			.padding(horizontal: 16, vertical: 2)
+			.background(viewStore.selected ? Color.cyan.opacity(0.2): .clear)
 			.cornerRadius(16)
-			.padding(horizontal: 16)
+			.overlay(
+				RoundedRectangle(cornerRadius: 16)
+					.stroke(Color.mint, lineWidth: 2)
+			)
+			.padding(horizontal: 16, vertical: 4)
 		}
 	}
 }

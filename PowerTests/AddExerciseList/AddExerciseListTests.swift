@@ -26,4 +26,19 @@ final class AddExerciseListTests: XCTestCase {
 			reducer: AddExerciseListFeature())
 	}
 
+	func testSelectedFilter() {
+
+		let items = AddExerciseListFeature.State(exercises: [
+			AddExerciseItemFeature.State(name: "Exercise A", muscles: [], image: nil, selected: true),
+			AddExerciseItemFeature.State(name: "Exercise B", muscles: [], image: nil, selected: false),
+			AddExerciseItemFeature.State(name: "Exercise C", muscles: [], image: nil, selected: false),
+			AddExerciseItemFeature.State(name: "Exercise D", muscles: [], image: nil, selected: true),
+			AddExerciseItemFeature.State(name: "Exercise E", muscles: [], image: nil, selected: true),
+			AddExerciseItemFeature.State(name: "Exercise F", muscles: [], image: nil, selected: true),
+			AddExerciseItemFeature.State(name: "Exercise G", muscles: [], image: nil, selected: true),
+		])
+
+		XCTAssertEqual(items.selectedExercises.count, 5)
+	}
+
 }

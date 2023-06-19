@@ -12,11 +12,16 @@ struct AddExerciseListFeature: Reducer {
 
 	struct State: Equatable {
 		var exercises: IdentifiedArrayOf<AddExerciseItemFeature.State>
+
+		var selectedExercises: IdentifiedArrayOf<AddExerciseItemFeature.State> {
+			return exercises.filter { $0.selected == true }
+		}
 	}
 
 	enum Action {
 		case tappedCancel
 		case tappedCreate
+		case tappedAddExercises
 		case exerciseItem(id: AddExerciseItemFeature.State.ID, action: AddExerciseItemFeature.Action)
 	}
 
@@ -26,8 +31,8 @@ struct AddExerciseListFeature: Reducer {
 			case .tappedCancel:
 				return .none
 			case .tappedCreate:
-				let saved = state.exercises.filter { $0.selected == true }
-				print(saved)
+				return .none
+			case .tappedAddExercises:
 				return .none
 			case .exerciseItem(id: _, action: _):
 				return .none
@@ -47,37 +52,57 @@ struct AddExerciseListView: View {
 	let store: StoreOf<AddExerciseListFeature>
 
     var body: some View {
-		WithViewStore(store, observe: \.exercises) { viewStore in
+		WithViewStore(store, observe: { $0 }) { viewStore in
 
 			VStack {
-
 				HStack {
 					Button(Strings.cancel) {
 						viewStore.send(.tappedCancel)
 					}
+					.font(.title3)
 					.padding(16)
+
 					Spacer()
 					Text(Strings.addExercise)
+						.font(.title3)
 					Spacer()
+
 					Button(Strings.create) {
 						viewStore.send(.tappedCreate)
 					}
+					.font(.title3)
 					.padding(16)
 				}
 
-				ScrollView {
-					LazyVGrid(columns: [.init()]) {
+				ZStack {
+					ScrollView {
+						LazyVGrid(columns: [.init()]) {
 
-						ForEachStore(
-							self.store.scope(
-								state: \.exercises,
-								action: AddExerciseListFeature.Action.exerciseItem(id:action:))
-						) { childStore in
-							return AddExerciseItemView(store: childStore)
+							ForEachStore(
+								self.store.scope(
+									state: \.exercises,
+									action: AddExerciseListFeature.Action.exerciseItem(id:action:))
+							) { childStore in
+								AddExerciseItemView(store: childStore)
+							}
+						}
+					}
+
+					if viewStore.state.selectedExercises.isEmpty == false {
+						VStack {
+							Spacer()
+							Button(Strings.addExercises(count: viewStore.state.selectedExercises.count)) {
+								viewStore.send(.tappedAddExercises)
+							}
+							.foregroundColor(Color.primary)
+							.padding(16)
+							.background(Color.mint)
+							.cornerRadius(16)
 						}
 
 					}
 				}
+
 			}
 		}
     }
