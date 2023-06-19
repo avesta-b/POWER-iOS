@@ -19,7 +19,7 @@ final class AddExerciseListTests: XCTestCase {
 
 	func testSelectedFilter() {
 
-		let items = AddExerciseListFeature.State(exercises: [
+		let items = AddExerciseFeature.State(exercises: [
 			AddExerciseItemFeature.State(name: "Exercise A", muscles: [], image: nil, selected: true),
 			AddExerciseItemFeature.State(name: "Exercise B", muscles: [], image: nil, selected: false),
 			AddExerciseItemFeature.State(name: "Exercise C", muscles: [], image: nil, selected: false),

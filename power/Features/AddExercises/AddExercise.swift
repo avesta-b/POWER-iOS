@@ -8,7 +8,7 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct AddExerciseListFeature: Reducer {
+struct AddExerciseFeature: Reducer {
 
 	struct State: Equatable {
 		var exercises: IdentifiedArrayOf<AddExerciseItemFeature.State>
@@ -47,9 +47,9 @@ struct AddExerciseListFeature: Reducer {
 
 }
 
-struct AddExerciseListView: View {
+struct AddExerciseView: View {
 
-	let store: StoreOf<AddExerciseListFeature>
+	let store: StoreOf<AddExerciseFeature>
 
     var body: some View {
 		WithViewStore(store, observe: { $0 }) { viewStore in
@@ -81,7 +81,7 @@ struct AddExerciseListView: View {
 							ForEachStore(
 								self.store.scope(
 									state: \.exercises,
-									action: AddExerciseListFeature.Action.exerciseItem(id:action:))
+									action: AddExerciseFeature.Action.exerciseItem(id:action:))
 							) { childStore in
 								AddExerciseItemView(store: childStore)
 							}
@@ -108,9 +108,9 @@ struct AddExerciseListView: View {
     }
 }
 
-struct AddExerciseListView_Previews: PreviewProvider {
+struct AddExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExerciseListView(
+        AddExerciseView(
 			store: Store(initialState: .init(exercises: [
 				.init(name: "Bench", muscles: ["Chest"], image: nil),
 				.init(name: "Deadlift", muscles: ["Back"], image: nil),
@@ -136,7 +136,7 @@ struct AddExerciseListView_Previews: PreviewProvider {
 				.init(name: "Bench", muscles: ["Chest"], image: nil),
 				.init(name: "Deadlift", muscles: ["Back"], image: nil),
 				.init(name: "Squat", muscles: ["Legs"], image: nil),
-			]), reducer: AddExerciseListFeature())
+			]), reducer: AddExerciseFeature())
 		)
     }
 }

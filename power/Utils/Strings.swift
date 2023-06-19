@@ -49,4 +49,16 @@ enum Strings {
 		"Add \(count) exercises"
 	}
 
+	static var createRoutine: String {
+		"Create Routine"
+	}
+
+	static var routineTitle: String {
+		"Routine title"
+	}
+
+	static var save: String {
+		"Save"
+	}
+
 }

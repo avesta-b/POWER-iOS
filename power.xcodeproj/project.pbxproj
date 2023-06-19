@@ -11,8 +11,9 @@
 		C91688A12A3FBD9500F1BF93 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91688A02A3FBD9500F1BF93 /* Images.swift */; };
 		C91688A32A3FBFE700F1BF93 /* MuscleGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91688A22A3FBFE700F1BF93 /* MuscleGroups.swift */; };
 		C91688A92A3FC22D00F1BF93 /* AddExerciseListItemTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91688A82A3FC22D00F1BF93 /* AddExerciseListItemTest.swift */; };
-		C91688AB2A3FC38700F1BF93 /* AddExerciseListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91688AA2A3FC38700F1BF93 /* AddExerciseListTests.swift */; };
+		C91688AB2A3FC38700F1BF93 /* AddExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91688AA2A3FC38700F1BF93 /* AddExerciseTests.swift */; };
 		C91688AE2A3FD1C700F1BF93 /* CreateRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91688AD2A3FD1C700F1BF93 /* CreateRoutine.swift */; };
+		C91688B02A3FEA3D00F1BF93 /* TextFieldWithClear.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91688AF2A3FEA3D00F1BF93 /* TextFieldWithClear.swift */; };
 		C91C9D252A36C40800E431EB /* PowerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D242A36C40800E431EB /* PowerApp.swift */; };
 		C91C9D292A36C40900E431EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91C9D282A36C40900E431EB /* Assets.xcassets */; };
 		C91C9D2C2A36C40900E431EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91C9D2B2A36C40900E431EB /* Preview Assets.xcassets */; };
@@ -22,7 +23,7 @@
 		C91C9D462A36C40900E431EB /* PowerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D452A36C40900E431EB /* PowerUITests.swift */; };
 		C91C9D482A36C40900E431EB /* PowerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D472A36C40900E431EB /* PowerUITestsLaunchTests.swift */; };
 		C92FFF682A3D4E9E0035CACF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FFF672A3D4E9E0035CACF /* Strings.swift */; };
-		C946130F2A3E995400104F72 /* AddExerciseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946130E2A3E995400104F72 /* AddExerciseList.swift */; };
+		C946130F2A3E995400104F72 /* AddExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946130E2A3E995400104F72 /* AddExercise.swift */; };
 		C99F27612A3C1EFE00CACC8E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C99F27602A3C1EFE00CACC8E /* ComposableArchitecture */; settings = {ATTRIBUTES = (Required, ); }; };
 		C99F27652A3C1F8D00CACC8E /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99F27642A3C1F8D00CACC8E /* CounterFeature.swift */; };
 		C99F276C2A3D483F00CACC8E /* TabPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99F276B2A3D483F00CACC8E /* TabPage.swift */; };
@@ -52,8 +53,9 @@
 		C91688A02A3FBD9500F1BF93 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		C91688A22A3FBFE700F1BF93 /* MuscleGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleGroups.swift; sourceTree = "<group>"; };
 		C91688A82A3FC22D00F1BF93 /* AddExerciseListItemTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseListItemTest.swift; sourceTree = "<group>"; };
-		C91688AA2A3FC38700F1BF93 /* AddExerciseListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseListTests.swift; sourceTree = "<group>"; };
+		C91688AA2A3FC38700F1BF93 /* AddExerciseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseTests.swift; sourceTree = "<group>"; };
 		C91688AD2A3FD1C700F1BF93 /* CreateRoutine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoutine.swift; sourceTree = "<group>"; };
+		C91688AF2A3FEA3D00F1BF93 /* TextFieldWithClear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithClear.swift; sourceTree = "<group>"; };
 		C91C9D212A36C40800E431EB /* power.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = power.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91C9D242A36C40800E431EB /* PowerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerApp.swift; sourceTree = "<group>"; };
 		C91C9D282A36C40900E431EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,7 +69,7 @@
 		C91C9D452A36C40900E431EB /* PowerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUITests.swift; sourceTree = "<group>"; };
 		C91C9D472A36C40900E431EB /* PowerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C92FFF672A3D4E9E0035CACF /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
-		C946130E2A3E995400104F72 /* AddExerciseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseList.swift; sourceTree = "<group>"; };
+		C946130E2A3E995400104F72 /* AddExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExercise.swift; sourceTree = "<group>"; };
 		C99F27642A3C1F8D00CACC8E /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 		C99F276B2A3D483F00CACC8E /* TabPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPage.swift; sourceTree = "<group>"; };
 		C9B8BD752A3D686F00A18C3C /* WorkoutCarditem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCarditem.swift; sourceTree = "<group>"; };
@@ -112,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				C91688A82A3FC22D00F1BF93 /* AddExerciseListItemTest.swift */,
-				C91688AA2A3FC38700F1BF93 /* AddExerciseListTests.swift */,
+				C91688AA2A3FC38700F1BF93 /* AddExerciseTests.swift */,
 			);
 			path = AddExerciseList;
 			sourceTree = "<group>";
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				C91688AD2A3FD1C700F1BF93 /* CreateRoutine.swift */,
+				C91688AF2A3FEA3D00F1BF93 /* TextFieldWithClear.swift */,
 			);
 			path = CreateRoutine;
 			sourceTree = "<group>";
@@ -201,7 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				C9046DB72A3E724F009D3AF4 /* AddExerciseListItem.swift */,
-				C946130E2A3E995400104F72 /* AddExerciseList.swift */,
+				C946130E2A3E995400104F72 /* AddExercise.swift */,
 			);
 			path = AddExercises;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				C91C9D2E2A36C40900E431EB /* Persistence.swift in Sources */,
 				C9B8BD782A3D6F0D00A18C3C /* View+Modifiers.swift in Sources */,
 				C9046DB82A3E724F009D3AF4 /* AddExerciseListItem.swift in Sources */,
+				C91688B02A3FEA3D00F1BF93 /* TextFieldWithClear.swift in Sources */,
 				C91688AE2A3FD1C700F1BF93 /* CreateRoutine.swift in Sources */,
 				C91688A12A3FBD9500F1BF93 /* Images.swift in Sources */,
 				C99F276C2A3D483F00CACC8E /* TabPage.swift in Sources */,
@@ -380,7 +384,7 @@
 				C91C9D252A36C40800E431EB /* PowerApp.swift in Sources */,
 				C99F27652A3C1F8D00CACC8E /* CounterFeature.swift in Sources */,
 				C92FFF682A3D4E9E0035CACF /* Strings.swift in Sources */,
-				C946130F2A3E995400104F72 /* AddExerciseList.swift in Sources */,
+				C946130F2A3E995400104F72 /* AddExercise.swift in Sources */,
 				C91688A32A3FBFE700F1BF93 /* MuscleGroups.swift in Sources */,
 				C91C9D312A36C40900E431EB /* power.xcdatamodeld in Sources */,
 			);
@@ -391,7 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C91688A92A3FC22D00F1BF93 /* AddExerciseListItemTest.swift in Sources */,
-				C91688AB2A3FC38700F1BF93 /* AddExerciseListTests.swift in Sources */,
+				C91688AB2A3FC38700F1BF93 /* AddExerciseTests.swift in Sources */,
 				C91C9D3C2A36C40900E431EB /* PowerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,7 +475,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -525,7 +529,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -604,7 +608,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7H66Q22DJD;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.avestabarzegar.powerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -624,7 +628,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7H66Q22DJD;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.avestabarzegar.powerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
