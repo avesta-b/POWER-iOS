@@ -11,7 +11,7 @@ import SwiftUI
 struct CreateRoutineFeature: Reducer {
 
 	struct State: Equatable {
-		var textFieldState = TextFieldWithClearFeature.State(titleKey: "Routine title", textFont: .title3, prompt: Text("A").font(.title3))
+		var textFieldState = TextFieldWithClearFeature.State(titleKey: Strings.routineTitle, textFont: .title3, prompt: Text(Strings.routineTitle).font(.title3))
 		@PresentationState var addExercise: AddExerciseFeature.State?
 	}
 

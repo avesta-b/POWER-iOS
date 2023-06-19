@@ -10,6 +10,8 @@ import SwiftUI
 
 struct AddExerciseFeature: Reducer {
 
+	@Dependency(\.dismiss) var dismiss
+
 	struct State: Equatable {
 		var exercises: IdentifiedArrayOf<AddExerciseItemFeature.State>
 
@@ -29,7 +31,7 @@ struct AddExerciseFeature: Reducer {
 		Reduce<State, Action> { state, action in
 			switch action {
 			case .tappedCancel:
-				return .none
+				return .run { _ in await self.dismiss() }
 			case .tappedCreate:
 				return .none
 			case .tappedAddExercises:
