@@ -24,6 +24,8 @@
 		C91C9D482A36C40900E431EB /* PowerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C9D472A36C40900E431EB /* PowerUITestsLaunchTests.swift */; };
 		C92FFF682A3D4E9E0035CACF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FFF672A3D4E9E0035CACF /* Strings.swift */; };
 		C946130F2A3E995400104F72 /* AddExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946130E2A3E995400104F72 /* AddExercise.swift */; };
+		C9706EDD2A411015007E43C5 /* RoutineListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9706EDC2A411015007E43C5 /* RoutineListItem.swift */; };
+		C9706EDF2A411645007E43C5 /* ExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9706EDE2A411645007E43C5 /* ExerciseSet.swift */; };
 		C97BEC512A4011F400AD5370 /* RoutineList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97BEC502A4011F400AD5370 /* RoutineList.swift */; };
 		C99F27612A3C1EFE00CACC8E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C99F27602A3C1EFE00CACC8E /* ComposableArchitecture */; settings = {ATTRIBUTES = (Required, ); }; };
 		C99F27652A3C1F8D00CACC8E /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99F27642A3C1F8D00CACC8E /* CounterFeature.swift */; };
@@ -71,6 +73,8 @@
 		C91C9D472A36C40900E431EB /* PowerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C92FFF672A3D4E9E0035CACF /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		C946130E2A3E995400104F72 /* AddExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExercise.swift; sourceTree = "<group>"; };
+		C9706EDC2A411015007E43C5 /* RoutineListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineListItem.swift; sourceTree = "<group>"; };
+		C9706EDE2A411645007E43C5 /* ExerciseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSet.swift; sourceTree = "<group>"; };
 		C97BEC502A4011F400AD5370 /* RoutineList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineList.swift; sourceTree = "<group>"; };
 		C99F27642A3C1F8D00CACC8E /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 		C99F276B2A3D483F00CACC8E /* TabPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPage.swift; sourceTree = "<group>"; };
@@ -125,8 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				C91688AD2A3FD1C700F1BF93 /* CreateRoutine.swift */,
-				C91688AF2A3FEA3D00F1BF93 /* TextFieldWithClear.swift */,
-				C97BEC502A4011F400AD5370 /* RoutineList.swift */,
 			);
 			path = CreateRoutine;
 			sourceTree = "<group>";
@@ -195,6 +197,8 @@
 		C91D5CCE2A410E5F00150EF1 /* RoutineExercises */ = {
 			isa = PBXGroup;
 			children = (
+				C97BEC502A4011F400AD5370 /* RoutineList.swift */,
+				C9706EDC2A411015007E43C5 /* RoutineListItem.swift */,
 			);
 			path = RoutineExercises;
 			sourceTree = "<group>";
@@ -219,9 +223,19 @@
 			path = AddExercises;
 			sourceTree = "<group>";
 		};
+		C9706EDB2A410FDD007E43C5 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C91688AF2A3FEA3D00F1BF93 /* TextFieldWithClear.swift */,
+				C9706EDE2A411645007E43C5 /* ExerciseSet.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		C99F27622A3C1F7400CACC8E /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C9706EDB2A410FDD007E43C5 /* Shared */,
 				C91D5CCE2A410E5F00150EF1 /* RoutineExercises */,
 				C91688AC2A3FD18A00F1BF93 /* CreateRoutine */,
 				C9046DB62A3E71EA009D3AF4 /* Workouts */,
@@ -385,6 +399,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C91C9D2E2A36C40900E431EB /* Persistence.swift in Sources */,
+				C9706EDD2A411015007E43C5 /* RoutineListItem.swift in Sources */,
+				C9706EDF2A411645007E43C5 /* ExerciseSet.swift in Sources */,
 				C9B8BD782A3D6F0D00A18C3C /* View+Modifiers.swift in Sources */,
 				C9046DB82A3E724F009D3AF4 /* AddExerciseListItem.swift in Sources */,
 				C91688B02A3FEA3D00F1BF93 /* TextFieldWithClear.swift in Sources */,

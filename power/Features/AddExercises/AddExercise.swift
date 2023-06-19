@@ -98,7 +98,7 @@ struct AddExerciseView: View {
 						ScrollView {
 							Spacer()
 								.frame(height: 24)
-							LazyVGrid(columns: [.init()]) {
+							LazyVStack {
 
 								ForEachStore(
 									self.store.scope(
