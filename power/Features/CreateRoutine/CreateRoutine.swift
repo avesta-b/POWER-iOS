@@ -20,6 +20,7 @@ struct CreateRoutineFeature: Reducer {
 		case addExercise(PresentationAction<AddExerciseFeature.Action>)
 		case cancelTapped
 		case saveTapped
+		case addTapped
 	}
 
 	var body: some ReducerOf<Self> {
@@ -32,6 +33,9 @@ struct CreateRoutineFeature: Reducer {
 			case .cancelTapped:
 				return .none
 			case .saveTapped:
+				return .none
+			case .addTapped:
+				state.addExercise = .init(exercises: [])
 				return .none
 			}
 		}
@@ -67,9 +71,18 @@ struct CreateRoutineView: View {
 						.frame(width: 48)
 						.foregroundColor(.mint)
 						.padding(8)
-					Text("Get started by adding an exercise to your routine")
-						
+					Text(Strings.getStartedByAddingAnExercise)
+						.multilineTextAlignment(.center)
 						.padding(horizontal: 32)
+					Button("Add exercises") {
+						viewStore.send(.addTapped)
+					}
+					.font(.headline)
+					.foregroundColor(Color(UIColor.systemBackground))
+					.padding(16)
+					.background(Color.mint)
+					.cornerRadius(16)
+					.padding(8)
 				}
 				.navigationTitle(Strings.createRoutine)
 				.navigationBarTitleDisplayMode(.inline)
@@ -85,6 +98,12 @@ struct CreateRoutineView: View {
 						}
 					}
 				}
+			}
+			.sheet(
+				store: self.store.scope(
+					state: \.$addExercise,
+					action: { .addExercise($0) })) { presentationStore in
+				AddExerciseView(store: presentationStore)
 			}
 		}
 	}

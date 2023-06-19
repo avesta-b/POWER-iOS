@@ -61,4 +61,8 @@ enum Strings {
 		"Save"
 	}
 
+	static var getStartedByAddingAnExercise: String {
+		"Get started by adding an exercise to your routine"
+	}
+
 }

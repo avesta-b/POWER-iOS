@@ -94,7 +94,8 @@ struct AddExerciseView: View {
 							Button(Strings.addExercises(count: viewStore.state.selectedExercises.count)) {
 								viewStore.send(.tappedAddExercises)
 							}
-							.foregroundColor(Color.primary)
+							.font(.headline)
+							.foregroundColor(Color(UIColor.systemBackground))
 							.padding(16)
 							.background(Color.mint)
 							.cornerRadius(16)

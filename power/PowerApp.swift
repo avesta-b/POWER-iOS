@@ -201,7 +201,12 @@ struct PowerApp: App {
 
 	var body: some Scene {
 		WindowGroup {
-			SampleView()
+			AddExerciseView(
+				store: Store(
+					initialState: AddExerciseFeature.State(exercises: []),
+					reducer: AddExerciseFeature())
+			)
+//			SampleView()
 //			TabPage(
 //				store: Store(
 //					initialState: TabPageFeature.State(currentTab: .exercises),
