@@ -53,29 +53,34 @@ struct AddExerciseItemView: View {
 
 	var body: some View {
 		WithViewStore(store, observe: { $0 }) { (viewStore: ViewStoreOf<AddExerciseItemFeature>) in
-			HStack(spacing: 8) {
+			HStack {
 
 				Image(systemName: Images.workoutImage)
 					.resizable(resizingMode: .stretch)
 					.scaledToFit()
-					.frame(maxWidth: 48)
+					.frame(maxWidth: 36)
+					.padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0))
 
 				VStack(alignment: .leading, spacing: 8) {
 					Text(viewStore.state.name)
 					Text(viewStore.state.muscles.joined(separator: ","))
 						.foregroundColor(.secondary)
-				}.padding(16)
+				}.padding(12)
 
 				Spacer()
 
-				Image(systemName: Images.pieChartImage)
-					.resizable(resizingMode: .stretch)
-					.scaledToFit()
-					.frame(maxWidth: 48)
-					.foregroundColor(.mint)
-					.onTapGesture {
-						viewStore.send(.tappedSeeData)
-					}
+				Button {
+					viewStore.send(.tappedSeeData)
+				} label: {
+					Image(systemName: Images.pieChartImage)
+						.resizable(resizingMode: .stretch)
+						.scaledToFit()
+						.frame(width: 24)
+						.foregroundColor(.mint)
+						.padding(16)
+				}
+
+
 			}
 			.contentShape(Rectangle())
 			.onTapGesture {
@@ -84,7 +89,7 @@ struct AddExerciseItemView: View {
 					return
 				}
 			}
-			.padding(horizontal: 16, vertical: 2)
+			.padding(vertical: 2)
 			.background(viewStore.selected ? Color.cyan.opacity(0.2): .clear)
 			.cornerRadius(16)
 			.overlay(

@@ -32,6 +32,7 @@ struct AddExerciseFeature: Reducer {
 		case tappedAddCustom
 		case tappedAddExercises
 		case exerciseItem(id: AddExerciseItemFeature.State.ID, action: AddExerciseItemFeature.Action)
+		case movedItem(from: IndexSet, to: Int)
 		case delegate(Delegate)
 
 		enum Delegate {
@@ -45,6 +46,8 @@ struct AddExerciseFeature: Reducer {
 			case .tappedCancel:
 				return .run { _ in await self.dismiss() }
 			case .tappedAddCustom:
+				state.exercises.append(contentsOf: [.init(name: "Foo", muscles: ["A"], image: nil)
+												   ])
 				return .none
 			case .tappedAddExercises:
 				let exercises: [AddExerciseItemFeature.State.ExtractedState] = state
@@ -72,6 +75,9 @@ struct AddExerciseFeature: Reducer {
 				case .tappedSeeData:
 					return .none
 				}
+			case let .movedItem(from: from, to: to):
+				state.exercises.move(fromOffsets: from, toOffset: to)
+				return .none
 			case .delegate(_):
 				return .none
 			}
@@ -106,6 +112,8 @@ struct AddExerciseView: View {
 										action: AddExerciseFeature.Action.exerciseItem(id:action:))
 								) { childStore in
 									AddExerciseItemView(store: childStore)
+								}.onMove { from, to in
+									viewStore.send(.movedItem(from: from, to: to))
 								}
 							}
 						}

@@ -69,4 +69,8 @@ enum Strings {
 		"Get started by adding an exercise to your routine"
 	}
 
+	static var addRoutineNotesHere: String {
+		"Add routine notes here"
+	}
+
 }
